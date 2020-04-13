@@ -6,7 +6,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class InformationServiceFactory {
 
-    public static InformationService create(InformationReceiver informationReceiver, StreamInformationReceiver streamInformationReceiver) {
-        return new InformationServiceImpl(informationReceiver, streamInformationReceiver);
+    public static InformationService create(
+        InformationReceiver informationReceiver,
+        StreamInformationReceiver streamInformationBlockingReceiver,
+        StreamInformationReceiver streamInformationReceiver
+    ) {
+        return new InformationServiceImpl(informationReceiver, streamInformationBlockingReceiver, streamInformationReceiver);
     }
 }

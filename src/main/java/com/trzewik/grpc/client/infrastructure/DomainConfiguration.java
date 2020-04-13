@@ -10,7 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DomainConfiguration {
     @Bean
-    InformationService informationService(InformationReceiver informationReceiver, StreamInformationReceiver streamInformationReceiver) {
-        return InformationServiceFactory.create(informationReceiver, streamInformationReceiver);
+    InformationService informationService(
+        InformationReceiver informationReceiver,
+        StreamInformationReceiver informationStreamBlockingClient,
+        StreamInformationReceiver informationStreamBClient
+    ) {
+        return InformationServiceFactory.create(informationReceiver, informationStreamBlockingClient, informationStreamBClient);
     }
 }

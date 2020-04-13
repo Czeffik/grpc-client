@@ -21,6 +21,13 @@ public class InformationController {
         return id;
     }
 
+    @GetMapping(value = "/stream/blocking/information/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String blockingStreamInformation(@PathVariable(value = "id") String id) {
+        log.info("Stream information request with id: [{}]", id);
+        informationService.startBlockingStream(id);
+        return id;
+    }
+
     @GetMapping(value = "/stream/information/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public String streamInformation(@PathVariable(value = "id") String id) {
         log.info("Stream information request with id: [{}]", id);

@@ -19,7 +19,15 @@ build is **required** for development because generate *JAVA* classes from `*.pr
 * send HTTP request and watch logs
 
 
+**Start blocking stream with:**
+
+this type of request never end your http request.
+
+`curl localhost:8080/stream/blocking/information/1`
+
 **Start stream with:**
+
+your http request will finish with status code 200 and stream will be still opened.
 
 `curl localhost:8080/stream/information/1`
 
